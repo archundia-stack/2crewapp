@@ -34,7 +34,8 @@ export default function Perfil() {
           <div key={k} className="flex justify-between p-4"><span className="text-muted">{k}</span><span>{v}</span></div>
         ))}
       </div>
-      <Link href="/entrar" className="btn btn-ghost mt-6 w-full">Cambiar de rol</Link>
+      <Link href="/encargado" className="btn btn-ghost mt-6 w-full">Modo encargado en sitio</Link>
+      <Link href="/entrar" className="btn btn-ghost mt-2 w-full">Cambiar de rol</Link>
     </>
   );
 }

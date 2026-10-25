@@ -1,6 +1,7 @@
 import { events } from "@/lib/data";
 import { mxn } from "@/lib/format";
-import { Badge, PageTitle, Progress, statusTone } from "@/components/ui";
+import { PageTitle, Progress } from "@/components/ui";
+import { EventPayBadge } from "@/components/event-pay-badge";
 
 export default function AdminEventos() {
   return (
@@ -28,7 +29,7 @@ export default function AdminEventos() {
                 <td className="p-3"><div className="mb-1 font-mono text-xs">{e.confirmed}/{e.needed}</div><Progress value={e.confirmed} total={e.needed} /></td>
                 <td className="p-3 font-mono">{mxn(e.total)}</td>
                 <td className="p-3 font-mono text-amber">{mxn(e.total - Math.round(e.total / 1.1))}</td>
-                <td className="p-3"><Badge tone={statusTone(e.paymentStatus)}>{e.paymentStatus}</Badge></td>
+                <td className="p-3"><EventPayBadge e={e} /></td>
               </tr>
             ))}
           </tbody>

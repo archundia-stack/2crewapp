@@ -25,6 +25,14 @@ export default function Entrar() {
           </Link>
         ))}
       </div>
+      <Link href="/empresa/pagos" className="mt-6 w-full max-w-3xl rounded-[14px] border border-amber/40 bg-amber/10 p-5 transition hover:border-amber">
+        <div className="font-mono text-xs uppercase tracking-widest text-amber">Demo del pago · 6 pasos</div>
+        <div className="mt-1 font-semibold">Ver cómo se paga un evento de punta a punta</div>
+        <p className="mt-1 text-sm text-muted">
+          La empresa deposita por SPEI, 2Crew concilia y resguarda, la técnica ve su código, el encargado lo captura y 2Crew
+          dispersa. Una barra arriba te guía en cada paso.
+        </p>
+      </Link>
       <p className="mt-8 max-w-md text-center text-xs text-dim">
         Versión de demostración con datos de ejemplo. El registro con teléfono y la verificación de identidad llegan en la
         siguiente fase.

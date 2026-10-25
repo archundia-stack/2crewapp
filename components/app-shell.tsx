@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X, type LucideIcon } from "lucide-react";
 import { Logo } from "./ui";
+import { DemoBar } from "./demo-bar";
 
 export interface NavItem {
   href: string;
@@ -89,7 +90,10 @@ export function AppShell({
         </div>
       )}
 
-      <main className="flex-1 min-w-0 px-4 py-6 md:px-8 md:py-8 max-w-[1400px]">{children}</main>
+      <div className="flex-1 min-w-0">
+        <DemoBar />
+        <main className="px-4 py-6 md:px-8 md:py-8 max-w-[1400px]">{children}</main>
+      </div>
     </div>
   );
 }

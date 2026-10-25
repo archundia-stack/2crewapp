@@ -2,8 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { events, eventById, COMMISSION } from "@/lib/data";
 import { mxn } from "@/lib/format";
-import { Badge, PageTitle, Progress, SectionTitle, statusTone } from "@/components/ui";
+import { PageTitle, Progress, SectionTitle } from "@/components/ui";
 import { CrewTable } from "@/components/crew-table";
+import { EventPayBadge } from "@/components/event-pay-badge";
 
 export function generateStaticParams() {
   return events.map((e) => ({ id: e.id }));
@@ -19,6 +20,7 @@ export default async function EventoDetalle({ params }: { params: Promise<{ id: 
       <Link href="/empresa/eventos" className="text-sm text-amber">← Eventos</Link>
       <PageTitle title={e.name}>
         <Link href="/empresa/buscar" className="btn btn-ghost">Invitar más crew</Link>
+        {e.id === "gira-noreste-2026" && <Link href="/encargado" className="btn btn-ghost">Modo encargado</Link>}
         <Link href="/empresa/pagos" className="btn btn-amber">Ver pago SPEI</Link>
       </PageTitle>
 
@@ -55,7 +57,7 @@ export default async function EventoDetalle({ params }: { params: Promise<{ id: 
           <div className="mt-2 flex justify-between text-sm text-muted"><span>Comisión 2Crew (10%)</span><span className="font-mono text-ink">{mxn(e.total - subtotal)}</span></div>
           <div className="my-4 border-t border-line" />
           <div className="flex items-end justify-between"><span className="text-sm">Total</span><span className="font-display text-4xl font-bold">{mxn(e.total)}</span></div>
-          <div className="mt-4"><Badge tone={statusTone(e.paymentStatus)}>{e.paymentStatus}</Badge></div>
+          <div className="mt-4"><EventPayBadge e={e} /></div>
           <p className="mt-3 text-xs text-muted">
             El depósito queda resguardado por 2Crew. Cada técnico recibe su pago cuando entrega su código de liberación al
             encargado en sitio.

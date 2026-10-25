@@ -109,7 +109,7 @@ export const events: ProductionEvent[] = [
     onSite: "Samuel Ortega",
     needed: 12,
     confirmed: 9,
-    paymentStatus: "Retenido",
+    paymentStatus: "Esperando SPEI",
     total: 95040,
     crew: [
       { role: "Production Manager", techId: "t1", origin: "Mi Crew", status: "Confirmado", rateM: 1500, rateE: 3000 },
@@ -224,7 +224,6 @@ export interface IncomingSpei {
 }
 
 export const incomingSpei: IncomingSpei[] = [
-  { company: "2Crew Producciones", event: "Gira Noreste 2026", amount: 95040, reference: "2C-GN26-0611", status: "Recibido", when: "hoy 09:14" },
   { company: "Audio Visual Sistemas", event: "Concierto sinfónico rock", amount: 52800, reference: "2C-SR26-2111", status: "Recibido", when: "ayer 17:40" },
   { company: "2Crew Producciones", event: "Festival Orilla", amount: 214500, reference: "2C-FO26-1411", status: "Esperando", when: "vence 7 nov" },
   { company: "Los Lobos del Norte", event: "Palenque Feria", amount: 28600, reference: "2C-PF26-0211", status: "Monto distinto", when: "hoy 11:02" },

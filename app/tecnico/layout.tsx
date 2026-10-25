@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { DemoBar } from "@/components/demo-bar";
 import { Briefcase, CalendarDays, CreditCard, Home, User } from "lucide-react";
 
 const tabs = [
@@ -17,6 +18,7 @@ export default function TecnicoLayout({ children }: { children: React.ReactNode 
   const active = (href: string) => (href === "/tecnico" ? pathname === href : pathname.startsWith(href));
   return (
     <div className="mx-auto flex min-h-dvh max-w-md flex-col border-x border-line bg-bg">
+      <DemoBar />
       <main className="flex-1 px-4 pb-28 pt-6">{children}</main>
       <nav className="fixed inset-x-0 bottom-0 z-30 mx-auto max-w-md border-t border-line bg-panel/95 backdrop-blur pb-[env(safe-area-inset-bottom)]">
         <div className="grid grid-cols-5">

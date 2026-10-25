@@ -5,10 +5,13 @@ import { useState } from "react";
 import { Check, MapPin } from "lucide-react";
 import type { Offer, ProductionEvent } from "@/lib/data";
 import { mxn } from "@/lib/format";
+import { DEMO_EVENT_ID, useDemo } from "@/lib/demo-store";
 
 type State = "open" | "accepted" | "rejected" | "countered";
 
 export function OfferDetail({ offer, event }: { offer: Offer; event: ProductionEvent }) {
+  const demoState = useDemo();
+  const secured = event.id !== DEMO_EVENT_ID || demoState.stage === "retenido";
   const [state, setState] = useState<State>("open");
   const [sheet, setSheet] = useState(false);
   const [m, setM] = useState(offer.rateM);
@@ -59,7 +62,11 @@ export function OfferDetail({ offer, event }: { offer: Offer; event: ProductionE
         <div className="mt-2 flex justify-between text-sm text-muted"><span>Evento × {offer.eventos}</span><span className="font-mono text-ink">{mxn(offer.rateE * offer.eventos)}</span></div>
         <div className="my-3 border-t border-line" />
         <div className="flex items-end justify-between"><span className="font-semibold">Total para ti</span><span className="font-display text-4xl font-bold">{mxn(total)}</span></div>
-        <p className="mt-2 text-xs text-ok">Pago seguro: la empresa ya depositó por SPEI. Lo recibes la semana siguiente al evento.</p>
+        {secured ? (
+          <p className="mt-2 text-xs text-ok">Pago seguro: la empresa ya depositó por SPEI. Lo recibes la semana siguiente al evento.</p>
+        ) : (
+          <p className="mt-2 text-xs text-amber">La empresa aún no deposita. Antes del evento el pago queda resguardado por 2Crew y aquí verás “Pago seguro”.</p>
+        )}
       </div>
 
       {state !== "open" ? (
