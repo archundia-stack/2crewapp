@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0c0d0f;
+  --color-panel: #141518;
+  --color-panel-2: #1a1b20;
+  --color-line: #26272d;
+  --color-line-2: #33343b;
+  --color-ink: #f3f1ec;
+  --color-muted: #9b9ba3;
+  --color-dim: #6c6c74;
+  --color-amber: #ffb547;
+  --color-amber-ink: #1a1206;
+  --color-ok: #4ade80;
+  --color-info: #7aa7ff;
+  --color-bad: #f87171;
+
+  --font-display: var(--font-big-shoulders), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-instrument), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+html,
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.stage-glow {
+  background:
+    radial-gradient(60% 50% at 70% 0%, rgba(255, 181, 71, 0.14), transparent 70%),
+    radial-gradient(40% 40% at 15% 10%, rgba(255, 255, 255, 0.05), transparent 70%),
+    var(--color-bg);
+}
+
+.card {
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: 14px;
+}
+
+.input {
+  width: 100%;
+  background: var(--color-bg);
+  border: 1px solid var(--color-line-2);
+  border-radius: 10px;
+  padding: 0.65rem 0.85rem;
+  color: var(--color-ink);
+  outline: none;
+}
+.input:focus {
+  border-color: var(--color-amber);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: filter 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+.btn-amber {
+  background: var(--color-amber);
+  color: var(--color-amber-ink);
+}
+.btn-amber:hover {
+  filter: brightness(1.08);
+}
+.btn-ghost {
+  border: 1px solid var(--color-line-2);
+  color: var(--color-ink);
+}
+.btn-ghost:hover {
+  background: var(--color-panel-2);
+}
+.btn-light {
+  background: var(--color-ink);
+  color: #111;
+}
